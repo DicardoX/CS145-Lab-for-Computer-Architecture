@@ -123,5 +123,6 @@ module Ctr(
             ALUOp = 2'b00;
             Jump = 0;
         end
-            
+    endcase
+    end
 endmodule
