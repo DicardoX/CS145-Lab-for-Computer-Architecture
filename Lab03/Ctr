@@ -20,28 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Ctr(
-    input [5:0] opCode,
-    output regDst,
-    output aluSrc,
-    output memToReg,
-    output regWrite,
-    output memRead,
-    output memWrite,
-    output branch,
-    output [1:0] aluOp,
-    output jump
-    );
-    
-    reg regDst;
-    reg aluSrc;
-    reg memToReg;
-    reg regWrite;
-    reg memRead;
-    reg memWrite;
-    reg branch;
-    reg [1:0] aluOp;
-    reg jump;
+module Ctr(opCode, regDst, aluSrc, memToReg, regWrite, memRead, memWrite, branch, aluOp, jump);
+	input [5:0] opCode;
+    output reg regDst;
+    output reg aluSrc;
+    output reg memToReg;
+    output reg regWrite;
+    output reg memRead;
+	output reg memWrite;
+    output reg branch;
+    output reg [1:0] aluOp;
+    output reg jump;
     
     always @(opCode)
     begin
