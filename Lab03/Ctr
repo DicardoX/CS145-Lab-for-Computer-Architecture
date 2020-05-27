@@ -21,16 +21,16 @@
 
 
 module Ctr(
-    input [5:0] opCode,
-    output regDst,
-    output aluSrc,
-    output memToReg,
-    output regWrite,
-    output memRead,
-    output memWrite,
-    output branch,
-    output [1:0] aluOp,
-    output jump
+    input [5:0] OpCode,
+    output RegDst,
+    output ALUSrc,
+    output MemToReg,
+    output RegWrite,
+    output MemRead,
+    output MemWrite,
+    output Branch,
+    output [1:0] ALUOp,
+    output Jump
     );
    
     reg RegDst;
