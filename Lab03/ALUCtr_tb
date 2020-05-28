@@ -25,30 +25,31 @@ module ALUCtr_tb(
     );
     
     // Inputs
-	reg [5:0] funct;
-	reg [1:0] aluOp;
+	reg [5:0] Funct;
+	reg [1:0] ALUOp;
 
 	// Outputs
-	wire [3:0] aluCtr;
+	wire [3:0] aluCtrOut;
 
 	// Instantiate the Unit Under Test (UUT)
-	AluCtr uut (
-		.aluOp(aluOp), 
-		.funct(funct), 
-		.aluCtr(aluCtr)
+	ALUCtr uut (
+		.ALUOp(ALUOp), 
+		.Funct(Funct), 
+		.aluCtrOut(aluCtrOut)
 	);
 	
 	initial begin
-		aluOp = 0;
-		funct = 0;
-		#100;
-		#100 aluOp = 2'b01;
-		#100 aluOp = 2'b10;
-		#100 funct = 6'b000010;
-		#100 funct = 6'b000100;
-		#100 funct = 6'b000101;
-		#100 funct = 6'b001010;
-		#100 funct = 6'b100111;
+		ALUOp = 0;
+		Funct = 0;
+		//#100;
+		#150 ALUOp = 2'b01;
+		#70 ALUOp = 2'b10;
+		#70 Funct = 6'b000010;
+		#70 Funct = 6'b000100;
+		#40 Funct = 6'b000101;
+		#40 Funct = 6'b001010;
+		#560 Funct = 6'b100111;
+		
 	end 
     
 endmodule
