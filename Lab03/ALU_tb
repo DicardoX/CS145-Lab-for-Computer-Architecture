@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2020/05/28 16:36:03
+// Design Name: 
+// Module Name: ALU_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module ALU_tb(
+
+    );
+    
+   // Inputs
+	reg [31:0] in1;
+	reg [31:0] in2;
+	reg [3:0] aluCtr;
+
+	// Outputs
+	wire zero;
+	wire [31:0] aluRes;
+
+	// Instantiate the Unit Under Test (UUT)
+	ALU uut (
+		.in1(in1), 
+		.in2(in2), 
+		.aluCtr(aluCtr), 
+		.zero(zero), 
+		.aluRes(aluRes)
+	);
+
+    initial begin
+    in1 = 0; in2 = 0; aluCtr = 4'b0000;
+    
+    #100 in1 = 15; in2 = 10; 
+    #100 aluCtr = 4'b0001;  // or
+    #100 aluCtr = 4'b0010;  // add
+    #100 aluCtr = 4'b0110;  // sub
+    #100 in1 = 10; in2 = 15;
+    #100 aluCtr = 4'b0111; in1 = 15; in2 = 10; // set on less than
+    #100 in1 = 10; in2 = 15;
+    #100 aluCtr = 4'b1100; in1 = 1; in2 = 1;  // nor  
+    #100 in1 = 16;
+    #100;
+
+    end
+    
+endmodule
