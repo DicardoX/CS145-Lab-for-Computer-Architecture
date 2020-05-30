@@ -30,7 +30,7 @@ module dataMemory(
     );
     
     reg [31:0] readData;
-    reg [31:0] memFile[0:127];
+    reg [31:0] memFile[0:63];
     
     always @ (memRead)
     begin
