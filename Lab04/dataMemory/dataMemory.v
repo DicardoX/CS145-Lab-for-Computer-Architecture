@@ -30,20 +30,20 @@ module dataMemory(
     );
     
     reg [31:0] readData;
-	reg [31:0] memFile[0:127];
+    reg [31:0] memFile[0:127];
     
-	always @ (memRead)
-	begin
-	    if(memRead)
-	        readData = memFile[address];
-	    else
-	        readData = 0;
+    always @ (memRead)
+    begin
+	if(memRead)
+	    eadData = memFile[address];
+	else
+	    readData = 0;
 	end
 	 
-	always @ (negedge CLK) // Take the down edge of CLK as write signal
-	begin
-	    if (memWrite ==1)
-	        memFile[address] = writeData;
-	end
+    always @ (negedge CLK) // Take the down edge of CLK as write signal
+    begin
+	if (memWrite ==1)
+	    memFile[address] = writeData;
+    end
     
 endmodule
