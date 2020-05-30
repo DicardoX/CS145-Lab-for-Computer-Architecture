@@ -35,7 +35,7 @@ module dataMemory(
     always @ (memRead)
     begin
 	if(memRead)
-	    eadData = memFile[address];
+	    readData = memFile[address];
 	else
 	    readData = 0;
 	end
