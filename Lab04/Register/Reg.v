@@ -32,10 +32,12 @@ module Reg(CLK, readReg1, readReg2, writeReg, writeData, regWrite, readData1, re
     
     reg [31:0] readData1;
     reg [31:0] readData2;
+    
     reg [31:0] regFile[31:0];
     
     always @ (readReg1 or readReg2)
         begin
+            regFile[0] = 0;
             if(readReg1)
                 readData1 = regFile[readReg1];
             else
@@ -46,10 +48,10 @@ module Reg(CLK, readReg1, readReg2, writeReg, writeData, regWrite, readData1, re
                 readData2 = 0;
         end
         
-    always @ (negedge CLK)
+    always @ (negedge CLK)  // Take the down edge of CLK as write signal
         begin
             if(regWrite == 1)
-                regFile(writeReg) = writeData;
+                regFile[writeReg] = writeData;
         end
     
 endmodule
