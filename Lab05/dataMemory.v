@@ -30,19 +30,17 @@ module dataMemory(
     );
     
     reg [31:0] readData;
-	reg [31:0] memFile[0:127];
+	reg [31:0] memFile[0:63];
 	
 	initial begin
-	   $readmemh("./mem_data.txt", memFile);
-	   readData = 0;
+        $readmemb("./mem_data.txt", memFile);               // Read file
+        readData = 0;
     end
     
 	always @ (address)
 	begin
 	    if(memRead)
 	        readData = memFile[address];
-	    else
-	        readData = 0;
 	end
 	 
 	always @ (negedge CLK) // Take the down edge of CLK as write signal
