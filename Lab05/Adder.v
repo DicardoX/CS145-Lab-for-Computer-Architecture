@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Adder(in1, in2, out)
+module Adder(in1, in2, out);
     input wire [31:0] in1;
     input wire [31:0] in2;
     output wire [31:0] out;
