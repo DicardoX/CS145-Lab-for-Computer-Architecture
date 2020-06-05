@@ -26,15 +26,21 @@ module Top_tb(
 /** Input */
 reg CLK;
 reg Reset;
+
 /** Set CLK */
-always #15 CLK = ~CLK;
+always #20 CLK = ~CLK;
 /**  Instantiate the Unit Under Test (UUT) */    
 Top uut(
     .CLK(CLK),
     .Reset(Reset)
 );
 
-wire [2:0] regFile1;   
+wire [31:0] INST = uut.INST[31:0];
+wire [31:0] PC = uut.PC[31:0];
+//wire [31:0] regFile [0:31];
+//assign regFile  = uut.regs.regFile;
+
+/**wire [2:0] regFile1;   
 assign regFile1 = uut.regs.regFile[1][2:0];
 wire [2:0] regFile2;
 assign regFile2 = uut.regs.regFile[2][2:0];
@@ -49,7 +55,7 @@ assign regFile6 = uut.regs.regFile[6][2:0];
 wire [2:0] regFile7;
 assign regFile7 = uut.regs.regFile[7][2:0];
 wire [2:0] regFile8;
-assign regFile8 = uut.regs.regFile[8][2:0];
+assign regFile8 = uut.regs.regFile[8][2:0];*/
 
 initial begin
     $readmemh("mem_data", uut.dataMem.memFile);
