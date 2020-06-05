@@ -55,7 +55,7 @@ module Registers(
     end
     
     reg [5:0] cnt;
-    always @ (Reset)
+    always @ (Reset)                    // Reset
     begin
         for (cnt = 0; cnt < 32; cnt=cnt+1)
             regFile[cnt] = 0;
